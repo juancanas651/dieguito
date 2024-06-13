@@ -1,0 +1,342 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+img{
+    max-width: 100%;
+}
+nav{
+    text-align: center;
+    background-color: white;
+    margin: 1em auto;
+}
+
+nav a {
+    margin: 2em;
+    color: black;
+}
+
+#mbappe{
+    background-image: url(../img/fondom.jpeg);
+   
+}
+
+.mpcontainer{
+    text-align: center;
+    padding-top: 7em;
+}
+
+.mpcontainer .mp{
+    width: 15%;
+}
+
+.sobre{
+    text-align: center;
+}
+
+h1{
+    margin-top: 1em;
+    font-size: 2em;
+}
+
+.sobre p{
+    width: 40%;
+    margin: 1em auto;
+}
+
+.contmp{
+    padding-bottom: 6em;
+}
+
+.sobre .mpboton{
+    background-color: rgb(113, 80, 113);
+    border: rgb(113, 80, 113);
+    color: white;
+    padding: 1.2em 2em;
+    border-radius: 10%;
+}
+
+.mediacont .mediaimg{
+    width: 18%;
+    display: inline-block;
+}
+
+.mediacont{
+    width: 90%;
+    margin: 0em auto;
+    margin-top: 2em;
+    text-align: center;
+    
+}
+
+.mediaimg h2{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em;
+}
+
+#servicios{
+    background-color: rgba(117, 204, 175, 0.208);
+    margin-top: 2em;
+}
+
+.servitext {
+    text-align: center;
+}
+
+.servitext h2{
+    font-size: 3em;
+    padding-top: 1em;
+}
+
+.servitext p{
+    font-size: 1.5em;
+    margin: 1em auto;
+    width: 20%;
+   
+}
+
+.lged{
+   margin-left: 17em;
+}
+
+.contlg .lg{
+    width: 21%;
+    display: inline-block;
+    text-align: center;
+    margin: 2em 2em;
+    background-color: white;
+    border-radius: 5%;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.262);
+}
+
+.sericon{
+    font-size: 2em;
+    margin: 0.5em ;
+    padding: 0.3em;
+    border-radius: 50%;
+    color: white;
+}
+
+.lg h3{
+    margin-bottom: 0.5em;
+}
+
+.lg p{
+    margin-bottom: 1em;
+}
+
+.fa-globe{
+    background-color:rgb(113, 80, 113) ;
+}
+.fa-lightbulb{
+    background-color: orange;
+}
+.fa-gear{
+    background-color:rgba(117, 204, 175) ;
+}
+.fa-map-location-dot{
+    background-color: rgb(82, 248, 131);
+}
+.fa-user-large{
+    background-color: red;
+}
+.fa-coins{
+    background-color: rgb(143, 68, 143);
+
+}
+
+
+#producto{
+    background-color: rgba(25, 103, 103, 0.438);
+    padding-bottom: 3em;
+}
+
+.protext{
+    text-align: center;
+}
+
+.protext h2{
+    font-size: 2em;
+    padding-top: 1em;
+    color: white;
+}
+
+.protext p{
+    font-size: 1.2em;
+    margin: 0.5em auto;
+    width: 50%;
+    color: white;
+   
+}
+
+.proventana{
+    width: 95%;
+    background-color: white;
+    margin:2em auto;
+    
+}
+
+.contlista .prolista{
+    width: 45%;
+    display: inline-block;
+}
+
+.contlista{
+    margin-top: 3em;
+    margin-left: 3em;
+}
+
+.contlista p {
+    margin-bottom: 1em;
+}
+
+.proone{
+    width: 70%;
+}
+.proonesito {
+    margin-top: 3em;
+    margin-bottom: 4em;
+}
+
+.proonesito p{
+    margin: 1em 3em 
+}
+
+.proventana h2{
+    margin-left: 1.5em ;
+    font-size: 2em;
+    margin-bottom: 0em;
+}
+
+.protwo{
+    width: 29%;
+    background-color: rgba(200, 198, 198, 0.308);
+    padding-bottom: 4em;
+    
+}
+
+.protwo img{
+    width: 40%;
+    border-radius: 100%;
+
+
+}
+
+.proventana .proone ,.protwo{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.señorita{
+    text-align: center;
+    margin-top: 2em;
+}
+
+.precio h2{
+    color: purple;
+    font-size: 4.5em;
+    margin-top: 0.1em;
+}
+span{
+    font-size: 0.6em;
+}
+
+.sobretodo .mpboton{
+    background-color: rgb(255, 211, 13);
+    border:  rgb(255, 211, 13);
+    color: white;
+    padding: 1.2em 2em;
+    border-radius: 10%;
+}
+
+.sobretodo{
+    margin: 0em auto;
+    text-align: center;
+}
+
+.sobretodo h4{
+    margin: 1em auto;
+    width: 70%;
+}
+
+#caballo{
+    background-color: pink;
+}
+
+#caballo .protext h2{
+    color: black;
+    margin-bottom: 2em;
+}
+
+.contentradas{
+    text-align: center;
+    
+}
+
+.contentradas .entradas{
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.262); ;
+    background-color: white;
+    width: 20%;
+    display: inline-block;
+    margin: 0em 1em ;
+    padding-bottom: 2em;
+}
+
+.calidad{
+    background-color:rgb(180, 180, 203);
+    padding: 1.8em;
+    color: white;
+}
+.estandar{
+    background-color: orange;
+    padding: 1.8em;
+    color: white;
+}
+
+.basico{
+    background-color: rgb(113, 80, 113) ;
+    padding: 1.8em;
+    color: white;
+}
+
+.entradas .mpboton{
+    padding: 0.5em 1.5em;
+    margin-top: 2em;
+}
+
+.entradas h3{
+    font-size: 2em ;
+    margin: 1em;
+}
+
+.entradas p{
+    margin-bottom: 1em;
+}
+
+#caballo{
+    
+    padding-bottom: 3em;
+    background-color: rgba(199, 221, 255, 0.308);
+}
+
+
+#mansito{
+    background-image: url(../img/fondom.jpeg);
+}
+
+
+#mansito .man1, .man2{
+    width: 45%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+#mansito .man1 .datos{
+    width: 45%;
+    display: inline-block;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.486);
+
+}
+
+
