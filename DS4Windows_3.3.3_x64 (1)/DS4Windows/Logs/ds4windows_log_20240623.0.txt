@@ -1,0 +1,28 @@
+2024-06-22 23:13:48.0390|INFO|DS4Windows version 3.3.3
+2024-06-22 23:13:48.0390|INFO|DS4Windows exe file: DS4Windows.exe
+2024-06-22 23:13:48.0390|INFO|DS4Windows Assembly Architecture: x64
+2024-06-22 23:13:48.0390|INFO|OS Version: Microsoft Windows NT 10.0.22631.0
+2024-06-22 23:13:48.0390|INFO|OS Product Name: Windows 10 Pro
+2024-06-22 23:13:48.0390|INFO|OS Release ID: 2009
+2024-06-22 23:13:48.0390|INFO|System Architecture: x64
+2024-06-22 23:13:48.0390|INFO|Logger created
+2024-06-22 23:13:48.1981|INFO|LinkedProfiles.xml can't be found.
+2024-06-22 23:13:49.6758|INFO|Running as User
+2024-06-22 23:13:50.7221|INFO|Starting...
+2024-06-22 23:13:52.7227|INFO|Some applications may block controller inputs. (Windows UAC Conflictions). Please go to https://ryochan7.github.io/ds4windows-site/troubleshooting/kb-mouse-issues/#windows-not-responding-to-ds4ws-kb-m-commands-in-some-situations for more information and workarounds.
+2024-06-22 23:13:52.7227|INFO|Using output KB+M handler: SendInput
+2024-06-22 23:13:52.7227|INFO|Connection to ViGEmBus 1.21.442.0 established
+2024-06-22 23:13:52.7227|INFO|Searching for controllers...
+2024-06-22 23:13:52.7227|INFO|Using Shared Mode
+2024-06-22 23:13:52.7703|INFO|Found Controller: A8:BE:89:7C:E4:F4 (USB) (DS4 v.2).
+2024-06-22 23:13:53.3420|INFO|Plugging in virtual X360 controller (XInput slot #1) in output slot #1
+2024-06-22 23:13:53.3420|INFO|Associated input controller #1 (DS4 v.2) to virtual X360 Controller in output slot #1
+2024-06-22 23:13:53.3617|INFO|Controller 1 is using Profile "Default". Battery level is 100%
+2024-06-23 00:22:52.0816|INFO|User Session Ending
+2024-06-23 00:22:52.1458|INFO|Stopping Virtual Output Controllers
+2024-06-23 00:22:52.1458|INFO|Closing connection to ViGEmBus
+2024-06-23 00:22:52.2302|INFO|Disassociated virtual X360 Controller in output slot #1 from input controller #1 (DS4 v.2)
+2024-06-23 00:22:52.2414|INFO|Unplugging virtual X360 Controller from output slot #1
+2024-06-23 00:22:52.2414|INFO|Stopping DS4 Input Controllers
+2024-06-23 00:22:52.2414|INFO|Stopped DS4Windows
+2024-06-23 00:22:52.7584|INFO|Closing connection to output handler SendInput
