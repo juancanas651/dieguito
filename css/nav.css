@@ -1,0 +1,80 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+li{
+    margin-top: 0.4em;
+    display: inline-block;
+    margin-left: 2em;
+    padding: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+nav{
+    width: 100%;
+    margin: 0em auto;
+    padding: 0.5em 0em;
+}
+.navlogo h2{
+    color: rgb(0, 0, 0);
+    margin-left: 1em;
+}
+.navlogo{
+    width: 32%;
+    display: inline-block;
+}
+.navlin{
+    width: 32%;
+    text-align: center;
+    display: inline-block;
+}
+.divbotones{
+    width: 32%;
+    text-align: right;
+    display: inline-block;
+}
+nav button{
+    padding: 0.5em;
+    background-color: greenyellow;
+    border: none;
+}
+.esta:hover{
+    font-size:1.05em
+}
+img{
+    width: 100%;
+}
+nav button:hover{
+    background-color: rgba(172, 255, 47, 0.674);
+}
+
+.navertical{
+    position: absolute;
+    display: none;
+    list-style: none;
+    width: 10%;
+}
+
+li:hover .navertical{
+    display: block;
+    background-color: greenyellow;
+    border-radius: 10%;
+}
+li:hover .navertical li{
+    font-size: 0.7em;
+    padding: 1em;
+}
+
+.navertical li{
+    margin-left: 0em;
+    padding: 2em;
+    font-size: 1em;
+    width: 60%;
+}
+
+.navertical li:hover{
+    border-bottom: 3px black solid;
+}
