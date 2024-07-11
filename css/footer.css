@@ -1,0 +1,26 @@
+footer{
+    background-color: rgb(241, 239, 239);
+    padding-top: 2em;
+   
+}
+
+footer h2 {
+    font-size: 1em;
+    margin-bottom: 1.5em;
+}
+.fote{
+    margin:0em auto;
+    width: 80%;
+    display: grid;
+    gap: 10rem;
+    grid-template-columns: repeat(4,1fr);
+}
+
+.fote p{
+    margin-bottom: 1em;
+    font-size: 0.8em;
+}
+
+.fote a:hover{
+    color: rgb(1, 179, 255);
+}

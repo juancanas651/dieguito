@@ -38,17 +38,19 @@ nav{
 }
 nav button{
     padding: 0.5em;
-    background-color: greenyellow;
+    background-color: rgb(0, 0, 0);
     border: none;
+    color: white;
 }
 .esta:hover{
-    font-size:1.05em
+    font-size:1.05em;
+    border-bottom: 3px black solid;
 }
 img{
     width: 100%;
 }
 nav button:hover{
-    background-color: rgba(172, 255, 47, 0.674);
+    background-color: rgba(84, 84, 84, 0.674);
 }
 
 .navertical{
@@ -60,12 +62,13 @@ nav button:hover{
 
 li:hover .navertical{
     display: block;
-    background-color: greenyellow;
+    background-color: rgb(236, 234, 234);
     border-radius: 10%;
 }
 li:hover .navertical li{
     font-size: 0.7em;
     padding: 1em;
+
 }
 
 .navertical li{
