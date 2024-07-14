@@ -3,12 +3,37 @@
     width: 100%;
     text-align: center;
     display: grid;
-    grid-template-columns:repeat(4,1fr);
-    gap: 0em;
+    grid-template-columns:
+     repeat(
+        auto-fit,
+        minmax(10em,1fr)
+    );
+    gap: 8em;
+    margin-left: 2em;
     margin-left: 2em;
     margin: 1em auto;
   
 }
+
+#colombia{
+    background-image: url(../img/forma.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+.bande{
+    padding-top: 25em;
+    display: flex;
+}
+
+.colo{
+    width: 5%;
+}
+
+.colot{
+    color: white;
+}
+
 .players{
     width: 90%;
     margin: 0em auto;
@@ -24,6 +49,7 @@
 }
 
 .img-jugador img{
+    height: 450px;
     border: 1px rgb(195, 195, 195) solid;
 }
 
@@ -78,4 +104,41 @@
     display: block;
     visibility: visible;
     opacity: 1;
+}
+
+
+@media screen and (min-width:831px) and (max-width:1662px){
+    .detalles{
+        width: 100%;
+        text-align: center;
+        display: grid;
+        grid-template-columns:
+         repeat(
+            auto-fit,
+            minmax(5em,1fr)
+        );
+        gap: 0em;
+        margin-left: 2em;
+        margin-left: 2em;
+        margin: 1em auto;
+        
+         }
+}
+@media screen and (max-width:832px){
+    .detalles{
+        width: 100%;
+        text-align: center;
+        display: grid;
+        grid-template-columns:
+         repeat(
+            auto-fit,
+            minmax(20em,1fr)
+        );
+        gap: 0em;
+        margin-left: 2em;
+        margin-left: 2em;
+        margin: 1em auto;
+        
+        }
+
 }

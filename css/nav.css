@@ -115,7 +115,8 @@ img{
     }
 
     .navlin {
-        width: 100%;
+        margin-right: 4em;
+        width: 90%;
     }
     .navlin li{
         display: block;
