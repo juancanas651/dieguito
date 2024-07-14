@@ -3,148 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAYMOND</title>
-    <link rel="shortcut icon" href="img/favicon_io/android-chrome-512x512.png">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Copa America</title>
     <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
     <header id="inicio">
         <nav>
+            <input type="checkbox" id="menur">
+            <label for="menur" class="menu-icon">&#9776;</label>
             <div class="navlogo">
-                <h2>RAYMOND</h2>
+                <div class="logocopa">
+                    <a href="index.html"><img src="img/logo-copa-america.png" alt=""></a>
+                </div>
             </div>
             <ul class="navlin">
-                <li class="esta"><a href="">Inicio</a></li>
+                <li class="esta"><a href="index.html">Inicio</a></li>
                 <li class="esta">
-                    <a href="">Prendas</a>
-                    <ul class="navertical">
-                        <li><a href="camisetas_hombre.html">camisetas</a></li>
-                        <li><a href="pantalones_hombre.html">pantalones</a></li>
-                    </ul>
+                    <a href="equipos.html">Equipos</a>
                 </li>
                 <li class="esta">
-                    <a href="joyas.html">Joyas</a>
+                    <a href="">Estadios</a>
                 </li>
             </ul>
             <div class="divbotones">
-                <a href="login.html">
-                    <button>
-                        Iniciar sesion
-                    </button>
-                </a>
-                <button>
-                    Registrarse
-                </button>
+                <select name="ES" id="idioma">
+                    <option value="Esoañol">Español</option>
+                    <option value="Ingles">Ingles</option>
+                </select>
             </div>
         </nav>
     </header>
-
-    <section id="presentacion">
-        <h1>SOMOS RAYMOND</h1>
-        <div class="present">
-            <div><a href=""><button class="presboton1"><h2>Comprar Prendas</h2></button></a></div>
-            <div><a href="mujer.html"><button class="presboton2"><h2>Comprar Joyas</h2></button></a></div>
-        </div>
-    </section>
-
-    <section id="lomas">
-        <div class="buscado">
-            <h2>Lo Mas Buscado</h2>
-        </div>
-        <div class="present2">
-            <a href="">
-                <div class="imege"><img src="img/camisetas_hombre/camisap1.jpg" alt="">
-                    <p>Camiseta oversice reprint</p>
-                    <h3>79.900</h3>
-                </div>
-            </a>
-            <a href="">
-                <div class="imege"><img src="img/pantalones_mujer/pantalonesm1.jpg" alt="">
-                    <p>Pantalon baggy negro dama</p>
-                    <h3>119.900</h3>
-                </div>
-            </a>
-            <a href="">
-                <div class="imege"><img src="img/camisetas_mujer/camisetasm1.jpg" alt="">
-                     <p>Oversice dama re-zero</p>
-                    <h3>69.900</h3>
-                </div>
-            </a>
-            <a href="">
-                <div class="imege"><img src="img/pantalones_hombre/pantalonesh1.jpg" alt="">
-                     <p>Pantalon baggy hombre desco</p>
-                    <h3>129.900</h3>
-                </div>
-            </a>
-         </div>
-    </section>
-    <section id="publi">
-        <a href="">
-            <div class="descargar">
-                <div class="deache2"><h2>NUESTRA  APP</h2></div>
-                <P>Recibe notificaciones de nuestros drops y lanzamientos mas recientes</P>
-                <div class="deache3"><h3>Descargar Ahora</h3></div>
-            </div>
-        </a>
-    </section>
-
-    <section id="somos">
-        <p>En RAYMOND, la tienda donde siempre encuentras las últimas tendencias, tenemos ropa y accesorios para hombres y mujeres que te ayudarán a lucir tu mejor versión, sin importar tu estilo. Nuestra marca estrella, RAYMOND DESIGN, te trae colecciones urbanas para todas las ocasiones. Desde looks 'smart-casual' para el día a día hasta conjuntos llamativos para momentos especiales, tenemos todo lo que necesitas.
-        Explora nuestras opciones de Monki si buscas un estilo escandinavo con un toque urbano. ¿Te gustan las prendas icónicas que nunca pasan de moda? Stradivarius te ofrece pantalones baggy y camisetas oversize que elevarán tus looks de fin de semana.Para quienes se desafían en el gimnasio con pura motivación, las marcas líderes como Nike y adidas tienen ropa deportiva con diseños técnicos, estampados originales y colores vibrantes. Próxima parada: ¡la página de pago!
-        </p>
-    </section>
-    <section id="ultima">
-        <div class="todito">
-            <div class="redes">
-                <a href=""><i class="fa-brands fa-instagram"></i></a>
-                <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-                
-            </div>
-            <div class="metodos">
-                <div><img src="img/pago/american-express-png.webp" alt=""></div>
-                <div><img src="img/pago/visa-electron-png.webp" alt=""></div>
-                <div><img src="img/pago/visa-png.webp" alt=""></div>
-                <div><img src="img/pago/mastercard-png.webp" alt=""></div>
-                <div><img src="img/pago/pay-pal-png.webp" alt=""></div>
-                <div><img src="img/pago/apple-pay-png.webp" alt=""></div>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <div class="fote">
-            <div>
-                <h2>INFORMACION </h2>
-                <a href=""><p>Ayuda</p></a>
-                <a href=""><p>Estado del pedido</p></a>
-                <a href=""><p>Envios y devoluciones</p></a>
-                <a href=""><p>RAYMOND premier</p></a>
-                <a href=""><p>Descuento para estudiantes</p></a>
-                <a href=""><p>Mapa del sitio</p></a>
-            </div>
-            <div>
-                <h2>SOBRE RAYMOND</h2>
-                <a href=""><p>Sobre RAYMOND</p></a>
-                <a href=""><p>Trabajar en RAYMOND</p></a>
-                <a href=""><p>Responsabiliad corporativa</p></a>
-                <a href=""><p>Relacion con inversores</p></a>
-            </div>
-            <div>
-                <h2>MAS RAYMOND</h2>
-                <a href=""><p>Movil y app</p></a>
-                <a href=""><p>no se que poner</p></a>
-                <a href=""><p>marketplace</p></a>
-                <a href=""><p>Relacion con inversores</p></a>
-                <a href=""><p>ayudanos a mejorar</p></a>
-                <a href=""><p>etecetera</p></a>
-                <a href=""><p>esto ni lo leen</p></a>
-            </div>
-            <div>
-                <h2>COMPRA DESDE</h2>
-            </div>
-        </div>
-    </footer>
 </body>
 </html>

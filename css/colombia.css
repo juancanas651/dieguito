@@ -1,0 +1,81 @@
+
+.detalles{
+    width: 100%;
+    text-align: center;
+    display: grid;
+    grid-template-columns:repeat(4,1fr);
+    gap: 0em;
+    margin-left: 2em;
+    margin: 1em auto;
+  
+}
+.players{
+    width: 90%;
+    margin: 0em auto;
+}
+.jugador{
+    position: relative;
+    margin: 1em;
+}
+
+.jugador h1{
+    color: rgb(70, 143, 247);
+    font-size: 6rem;
+}
+
+.img-jugador img{
+    border: 1px rgb(195, 195, 195) solid;
+}
+
+.img-jugador{
+    width: 100%;
+    margin: 0;
+    position: absolute;
+}
+
+.jugador input{
+    display: none;
+}
+
+.inf-jugador{
+    position: absolute;
+    padding: 9em 1.2em ;
+    width: 50%;
+    margin: 0em auto;
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.5s , visibility 0.5s ;
+    visibility: hidden;
+    background-color: rgb(255, 255, 255);
+}
+
+#player1:checked ~ .inf-jugador,
+#player2:checked~.inf-jugador,
+#player3:checked~.inf-jugador,
+#player4:checked~.inf-jugador,
+#player5:checked~.inf-jugador,
+#player6:checked~.inf-jugador,
+#player7:checked~.inf-jugador,
+#player8:checked~.inf-jugador,
+#player9:checked~.inf-jugador,
+#player10:checked~.inf-jugador,
+#player11:checked~.inf-jugador,
+#player12:checked~.inf-jugador,
+#player13:checked~.inf-jugador,
+#player14:checked~.inf-jugador,
+#player15:checked~.inf-jugador,
+#player16:checked~.inf-jugador,
+#player17:checked~.inf-jugador,
+#player18:checked~.inf-jugador,
+#player19:checked~.inf-jugador,
+#player20:checked~.inf-jugador,
+#player21:checked~.inf-jugador,
+#player22:checked~.inf-jugador,
+#player23:checked~.inf-jugador,
+#player24:checked~.inf-jugador,
+#player25:checked~.inf-jugador,
+#player26:checked~.inf-jugador{
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
