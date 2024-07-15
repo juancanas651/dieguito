@@ -1,0 +1,32 @@
+.sec1{
+    width: 50%;
+    margin: 1em auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+#section1{
+    display: flex;
+    flex-direction: column;
+}
+
+.sec1 div{
+    margin: 1em ;
+}
+
+blockquote{
+    width: 100%;
+}
+
+span{
+    color: rgb(0, 0, 156);
+}
+
+@media screen and (max-width:667px){
+    .sec1{
+        width: 95%;
+        margin: 1em auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+}

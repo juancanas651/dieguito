@@ -1,0 +1,48 @@
+.noti{
+    margin: 0em auto;
+    width: 90%;
+}
+#secti1{
+    width: 95%;
+    margin: 1em auto;
+}
+
+.noti div{
+    margin: 1em auto;
+    width: 90%;
+}
+
+#notici{
+    background-color: rgb(0, 0, 140);
+    text-align: center;
+}
+#notici h1{
+    color: white;
+}
+
+#notici div{
+    width: 90%;
+    padding: 2em;
+    margin: 0em auto;
+}
+
+
+.areva{
+    display: grid;
+    grid-template-columns:repeat(auto-fit, minmax(20rem,1fr)) ;
+    backdrop-filter: blur(10px);
+}
+.nnn{
+    padding: 1em;
+}
+.m3{
+    border-radius: 50px;
+}
+
+.nnn:hover{
+    color: blue;
+}
+
+.nnn:hover .m3{
+    width:101%;
+}

@@ -24,7 +24,7 @@
 
 #equipos{
     padding: 3em;
-    background-color: rgba(75, 75, 213, 0.77);
+    background-color: rgb(0, 0, 140)
 }
 
 #productos{
@@ -37,8 +37,8 @@
     height: 50%;
 }
 
-.imege:hover {
-    width: 52%;
+.imege:hover  img{
+    width: 103%;
 }
 
 .imege h2{

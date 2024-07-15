@@ -18,20 +18,28 @@
 #colombia{
     background-image: url(../img/forma.jpeg);
     background-repeat: no-repeat;
-    background-size: cover
+    background-size: cover;
+    background-position: center;
 }
 
 .bande{
     padding-top: 25em;
+   
+}
+.bande2{
+    background: rgb(255,47,47);
+    background: linear-gradient(180deg, rgba(255,47,47,0) 0%, rgba(0,0,0,0.22685570810355393) 22%, rgba(0,0,0,0.7926820386357668) 100%);
+    backdrop-filter: blur(10px);
+    padding: 2em;
     display: flex;
 }
-
 .colo{
-    width: 5%;
+    width: 6%;
 }
 
 .colot{
-    color: white;
+    margin-left: 2em;
+    color: rgb(255, 255, 255);
 }
 
 .players{
