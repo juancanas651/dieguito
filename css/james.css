@@ -21,6 +21,8 @@ span{
     color: rgb(0, 0, 156);
 }
 
+
+/*para la seccion de la noticia*/
 @media screen and (max-width:667px){
     .sec1{
         width: 95%;

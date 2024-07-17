@@ -2,6 +2,34 @@
     margin: 0em auto;
     width: 90%;
 }
+
+
+#banner{
+    width: 100%;
+    height: 50vh;
+    position: relative;
+    text-align: center;
+}
+
+#banner video{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+#banner  h1{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    z-index: 1; 
+    font-size: 10rem;
+    mix-blend-mode: multiply;
+}
+
 #secti1{
     width: 95%;
     margin: 1em auto;
@@ -13,7 +41,7 @@
 }
 
 #notici{
-    background-color: rgb(0, 0, 140);
+    background-color: rgb(0, 0, 65);
     text-align: center;
 }
 #notici h1{
@@ -45,4 +73,44 @@
 
 .nnn:hover .m3{
     width:101%;
+}
+
+/*para el h1 del banner*/
+@media screen and (max-width:1244px){
+
+    #banner  h1{
+        font-size: 8rem;
+    }
+    
+}
+@media screen and (max-width:998px){
+
+    #banner  h1{
+        font-size: 7rem;
+    }
+}
+@media screen and (max-width:878px){
+
+    #banner  h1{
+        font-size: 6rem;
+    }
+}
+@media screen and (max-width:659px){
+
+    #banner  h1{
+        font-size: 5rem;
+    }
+}
+@media screen and (max-width:527px){
+
+    #banner  h1{
+        font-size: 4.5rem;
+    }
+}
+@media screen and (max-width:482px){
+
+    #banner  h1{
+        font-size: 4rem;
+        padding-top: 1em;
+    }
 }

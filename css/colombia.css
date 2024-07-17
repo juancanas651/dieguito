@@ -115,6 +115,7 @@
 }
 
 
+/*para los jugadores*/
 @media screen and (min-width:831px) and (max-width:1662px){
     .detalles{
         width: 100%;
@@ -149,4 +150,32 @@
         
         }
 
+}
+@media screen and (max-width:683px){
+    .img-jugador{
+        width: 80%;
+        margin-left: 3em ;
+        position: absolute;
+    }
+}
+
+
+@media screen and (max-width:1000px){
+
+    .colo{
+        width: 10%;
+    }
+    
+}
+@media screen and (max-width:500px){
+
+    .colo{
+        width: 40%;
+    }
+    
+    .colot{
+        font-size: 0.8em;
+        margin-left: 1em;
+        color: rgb(255, 255, 255);
+    }
 }
