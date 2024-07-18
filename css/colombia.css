@@ -158,6 +158,14 @@
         position: absolute;
     }
 }
+@media screen and (max-width:500px){
+    .img-jugador{
+        width: 90%;
+        margin-left: 1em ;
+        position: absolute;
+    }
+}
+
 
 
 @media screen and (max-width:1000px){
@@ -179,3 +187,4 @@
         color: rgb(255, 255, 255);
     }
 }
+

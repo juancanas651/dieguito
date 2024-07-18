@@ -64,7 +64,7 @@
     padding: 1em;
 }
 .m3{
-    border-radius: 50px;
+    border-radius: 20px;
 }
 
 .nnn:hover{
@@ -76,7 +76,7 @@
 }
 
 /*para el h1 del banner*/
-@media screen and (max-width:1244px){
+@media screen and (max-width:1246px){
 
     #banner  h1{
         font-size: 8rem;
