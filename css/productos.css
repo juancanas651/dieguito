@@ -87,8 +87,19 @@
 
 /*para las banderas*/
 @media screen and (max-width:571px){
-    .imege{
-        margin-left: 5em;
+
+    .camisetas2{
+        width: 100%;
+        margin: 4em auto;
+        display: grid;
+        grid-template-columns:
+         repeat(
+            auto-fit,
+            minmax(10em,1fr)
+        );
+        gap: 8em;
+        margin-left: 4.5em;
+    
     }
 
 }
