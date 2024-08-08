@@ -1,0 +1,12 @@
+nav ul li:hover{
+   font-size: 1.1em;
+   border-bottom: 1px black solid;
+}
+
+.bins{
+    background-color: palevioletred;
+}
+
+.bins-btn{
+    border-radius: 24px;
+}

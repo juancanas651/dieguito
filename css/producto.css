@@ -1,0 +1,39 @@
+.ani1{
+    color: black;
+    padding-left: 0.3em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    border-radius: 50%;
+}
+
+.ani2{
+    color: rgb(46, 37, 5);
+    padding-left: 0.3em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    border-radius: 50%;
+}
+
+.ani3{
+    color: rgb(237, 201, 207);
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    border-radius: 50%;
+}
+.ani:hover{
+    border:1px black solid;
+}
+
+.tall{
+    border-radius: 2blac4px;
+} 
+
+.tall:hover{
+    border: 1px black solid;
+}
+
+.lavad:hover{
+    color: rgb(138, 136, 136);
+}
