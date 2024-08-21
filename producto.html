@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/new.css">
     <link rel="stylesheet" href="css/producto.css">
+    <link rel="stylesheet" href="css/lightbox.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="nab">
         <div class="container">
             <a href="#" class="navbar-brand" ><span class="text-dark" >RAYMOND</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -33,10 +34,25 @@
                         <a class="nav-link" href="#">Contacto</a>
                     </li>
                 </ul>
+                <div>
+                    <div class="row ms-2">
+                      <div class="col-5">
+                        <button type="button" class="btn btn-dark fs-6" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                          Registrarse
+                        </button>
+                      </div>
+                      <div class="col">
+                        <button type="button" class="btn btn-light fs-6"  data-bs-toggle="modal" data-bs-target="#inicia">
+                          inicia sesion
+                        </button>
+                      </div>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
-    <section class="container">
+
+    <section class="container mt-5 pt-5">
         <div class="row">
             <div class="col-lg-8 col-md-6 col-sm-12">
                 <div id="carouselExample" class="carousel slide">
@@ -44,10 +60,10 @@
                         <div class="carousel-item active">
                             <div class="row">
                                 <div class="col">
-                                    <img src="img/camisetas_hombre/ph1.jpg" class="d-block w-100" alt="...">
+                                    <img src="img/camisetas_hombre/ph1.jpg" alt="Imagen del producto" class="product-image d-block w-100" onclick="abrircaja('img/camisetas_hombre/ph1.jpg')">
                                 </div>
                                 <div class="col">
-                                    <img src="img/camisetas_hombre/ph2.jpg" class="d-block w-100" alt="...">
+                                    <img src="img/camisetas_hombre/ph2.jpg" alt="Imagen del producto" class="product-image d-block w-100" onclick="abrircaja('img/camisetas_hombre/ph2.jpg')">
                                 </div>
                           </div>
                         </div>
@@ -121,26 +137,35 @@
                     </div>
                 </a>
                 <div class="row m-4 card">
-                    <div class="col-12">
-                        <a href="" class="text-decoration-none text-dark ">
-                            <p class="fs-6 ms-4 border-bottom p-1 lavad">
-                                Composicion, origen y cuidados <i class="fa-solid fa-arrow-right"></i>
-                            </p>
-                        </a>
+                    <div class="col-12 ms-3">
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Cuidados y Materiales
+                            </button>
+                            <div class="p-3 dropdown-menu">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium sapiente optio eius eos recusandae sunt consequuntur natus, officia omnis obcaecati culpa commodi dolore voluptatem? Assumenda veritatis perspiciatis aliquid distinctio mollitia!</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-12">
-                        <a href="" class="text-decoration-none text-dark ">
-                            <p class="fs-6 ms-4 border-bottom p-1 lavad">
-                                Disponibilidad en tiendas <i class="fa-solid fa-arrow-right"></i>
-                            </p>
-                        </a>
+                    <div class="col-12 ms-3">
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Disponibilidad en tiendas
+                            </button>
+                            <div class="p-3 dropdown-menu">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium sapiente optio eius eos recusandae sunt consequuntur natus, officia omnis obcaecati culpa commodi dolore voluptatem? Assumenda veritatis perspiciatis aliquid distinctio mollitia!</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-12">
-                        <a href="" class="text-decoration-none text-dark ">
-                            <p class="fs-6 ms-4 border-bottom p-1 lavad">
-                                Envios y devoluciones <i class="fa-solid fa-arrow-right"></i>
-                            </p>
-                        </a>
+                    <div class="col-12 ms-3">
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Envios y Devoluciones
+                            </button>
+                            <div class="p-3 dropdown-menu">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium sapiente optio eius eos recusandae sunt consequuntur natus, officia omnis obcaecati culpa commodi dolore voluptatem? Assumenda veritatis perspiciatis aliquid distinctio mollitia!</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row m-4 card">
@@ -180,6 +205,226 @@
             </div>
         </div>
     </section>
+
+    <section class="mt-5 mb-5 p-4 bins">
+        <div class="container text-center">
+            <button class="bins-btn bg-dark text-white mb-3">APP MOBILE</button>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam sit inventore reprehenderit, veritatis iure tempora repudiandae illum, ipsa porro est laborum quis aperiam rerum laudantium tenetur perspiciatis esse ex ratione.</p>
+
+        </div>
+    </section>
+
+    <section class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-3 col-sm-6 ">
+                <a class="text-decoration-none" href="">
+                    <img class="img-fluid" src="img/camisetas_hombre/camisap2.jpg" alt="">
+                    <h5 class="m-1 fs-6 text-dark">Camiseta Oversize</h5>
+                    <h5 class="m-1 text-danger fs-6 ">79.900</h5>
+                </a>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 col-sm-6 ">
+                <a class="text-decoration-none" href="">
+                    <img class="img-fluid" src="img/pantalones_hombre/pantalonesh2.jpg" alt="">
+                    <h5 class="m-1 fs-6 text-dark">Camiseta Oversize</h5>
+                    <h5 class="m-1 text-danger fs-6 ">79.900</h5>
+                </a>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 col-sm-6 ">
+                <a class="text-decoration-none" href="producto.html">
+                    <img class="img-fluid" src="img/camisetas_hombre/06377228800-p.jpg" alt="">
+                    <h5 class="m-1 fs-6 text-dark">Camiseta Oversize</h5>
+                    <h5 class="m-1 text-danger fs-6 ">79.900</h5>
+                </a>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 col-sm-6 ">
+                <a class="text-decoration-none" href="">
+                    <img class="img-fluid" src="img/pantalones_mujer/pantalonm2.jpg" alt="">
+                    <h5 class="m-1 fs-6 text-dark">Camiseta Oversize</h5>
+                    <h5 class="m-1 text-danger fs-6 ">79.900</h5>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-3 col-sm-6 ">
+                <a class="text-decoration-none" href="">
+                    <img class="img-fluid" src="img/camisetas_hombre/camisap2.jpg" alt="">
+                    <h5 class="m-1 fs-6 text-dark">Camiseta Oversize</h5>
+                    <h5 class="m-1 text-danger fs-6 ">79.900</h5>
+                </a>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 col-sm-6 ">
+                <a class="text-decoration-none" href="">
+                    <img class="img-fluid" src="img/pantalones_hombre/pantalonesh2.jpg" alt="">
+                    <h5 class="m-1 fs-6 text-dark">Camiseta Oversize</h5>
+                    <h5 class="m-1 text-danger fs-6 ">79.900</h5>
+                </a>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 col-sm-6 ">
+                <a class="text-decoration-none" href="producto.html">
+                    <img class="img-fluid" src="img/camisetas_hombre/06377228800-p.jpg" alt="">
+                    <h5 class="m-1 fs-6 text-dark">Camiseta Oversize</h5>
+                    <h5 class="m-1 text-danger fs-6 ">79.900</h5>
+                </a>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3 col-sm-6 ">
+                <a class="text-decoration-none" href="">
+                    <img class="img-fluid" src="img/pantalones_mujer/pantalonm2.jpg" alt="">
+                    <h5 class="m-1 fs-6 text-dark">Camiseta Oversize</h5>
+                    <h5 class="m-1 text-danger fs-6 ">79.900</h5>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="">
+        <div class="container pt-4">
+          <div class="row justify-content-center">
+            <div class="col-lg-2 col-md-6 col-sm-6 footer-cont">
+              <h3 class="fs-5  ">Ayuda</h3>
+              <ul>
+                <li class="nav-link mb-3">
+                  <a class="text-decoration-none text-dark-emphasis" href="">Comprar Online</a>
+                </li>
+                <li class="nav-link mb-3">
+                  <a class="text-decoration-none text-dark-emphasis" href="">Pago</a>
+                </li>
+                <li class="nav-link mb-3">
+                  <a class="text-decoration-none text-dark-emphasis" href="">Envio</a>
+                </li>
+                <li class="nav-link mb-3">
+                  <a class="text-decoration-none text-dark-emphasis" href="">Devoluciones</a>
+                </li>
+                <li class="nav-link mb-3">
+                  <a class="text-decoration-none text-dark-emphasis" href="">Compra como invitado</a>
+                </li>
+                <li class="nav-link mb-3">
+                  <a class="text-decoration-none text-dark-emphasis" href="">Ticket electronico</a>
+                </li>
+                <li class="nav-link mb-3">
+                  <a class="text-decoration-none text-dark-emphasis" href="">Dar de baja mi subscripcion</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-6 footer-cont ">
+              <h3 class="fs-5 ">we are RAYMOND</h3>
+              <ul>
+                <li class="nav-link mb-3">
+                  <a class="text-decoration-none text-dark-emphasis" href="">Sobre RAYMOND</a>
+                </li>
+                <li class="nav-link mb-3">
+                  <a class="text-decoration-none text-dark-emphasis" href="">Sostenibilidad</a>
+                </li>
+                <li class="nav-link mb-3">
+                  <a class="text-decoration-none text-dark-emphasis" href="">Trabaja con nosotros</a>
+                </li>
+                <li class="nav-link mb-3">
+                  <a class="text-decoration-none text-dark-emphasis" href="">Prensa</a>
+                </li>
+                <li class="nav-link mb-3">
+                  <a class="text-decoration-none text-dark-emphasis" href="">Nuestras tiendas</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-2 col-md-6 col-sm-6 footer-cont ">
+              <h3 class="fs-5 ">Te puede interesar</h3>
+              <ul>
+                <li class="nav-link mb-3">
+                  <a class="text-decoration-none text-dark-emphasis" href="">Rebajas en Ropa de Mujer</a>
+                </li>
+                <li class="nav-link mb-3">
+                  <a class="text-decoration-none text-dark-emphasis" href="">vestidos</a>
+                </li>
+                <li class="nav-link mb-3">
+                  <a class="text-decoration-none text-dark-emphasis" href="">Tops y bodies</a>
+                </li>
+                <li class="nav-link mb-3">
+                  <a class="text-decoration-none text-dark-emphasis" href="">Jeans</a>
+                </li>
+                <li class="nav-link mb-3">
+                  <a class="text-decoration-none text-dark-emphasis" href="">Pantalones</a>
+                </li>
+                <li class="nav-link mb-3">
+                  <a class="text-decoration-none text-dark-emphasis" href="">camisetas</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 text-center">
+              <a href=""> <i class="fa-brands fa-facebook fs-1 m-2 text-info-emphasis"></i></a>
+              <a href=""><i class="fa-brands fa-instagram fs-1 m-2 text-danger-emphasis"></i></a>
+              <a href=""><i class="fa-brands fa-whatsapp fs-1 m-2 text-success"></i></a>
+            </div>
+        </div>
+        
+    </footer>
+
+    <div class="fixed-bottom ms-2 spo ">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/7hp7RVkG5tF6F0bz3fWbH7?utm_source=generator&theme=0" width="20%" height="120" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+
+
+    <div id="caja" class="caja" onclick="cerrarcaja(event)">
+        <img id="imagen" src="" alt="Imagen ampliada">
+    </div>
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5 text-center" id="staticBackdropLabel">Registrate</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="form-floating mb-3">
+                <input type="username" class="form-control" id="floatingInput" placeholder="user12">
+                <label for="floatingInput">username</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+              </div>
+              <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+              </div>
+              <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Repeat Password</label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-success">Registrarse</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="modal fade" id="inicia" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"    aria-labelledby="iniciaLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5 text-center" id="iniciaLabel">Iniciar sesion</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="form-floating mb-3">
+                <input type="username" class="form-control" id="floatingInput" placeholder="user12">
+                <label for="floatingInput">usuario</label>
+              </div>
+              <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="contraseña">
+                <label for="floatingPassword">contraseña</label>
+                <a class="ms-2" href="">¿olvidaste tu contraseña?</a>
+              </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-success">iniciar sesion</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/java1.js"></script>
   </body>
 </html>

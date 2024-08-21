@@ -10,3 +10,32 @@ nav ul li:hover{
 .bins-btn{
     border-radius: 24px;
 }
+
+.spo{
+    width: 380px;
+}
+
+.spo:hover{
+    width: 2000px;
+    transition: width 1.5s ease;
+}
+
+
+footer{
+    background-color: rgb(237, 235, 235);
+}
+
+
+footer ul li a{
+    
+    font-size: 0.9em;
+    margin-left: -2.2em;
+
+}
+
+@media screen and (max-width:540px) {
+    .footer-cont{
+        text-align: center;
+    }
+    
+}
