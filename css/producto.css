@@ -59,7 +59,6 @@
 .caja img {
     max-width: 90%;
     max-height: 90%;
-    transition: transform 0.3s ease;
     cursor: grab;
 }
 
