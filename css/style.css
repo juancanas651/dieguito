@@ -1,18 +1,115 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+#canvasContainer{
+    height: 750px;
+    #fondo{
+        margin: 0em auto;
+    }
+
+    #canvita{
+        margin: 0em auto;
+        overflow: hidden;
+        width: 50%;
+        height: 600px;
+    }
+
+}
+body{
+    background-color: rgb(21, 22, 26);
+}
+nav{
+
+    border-bottom: 1px rgb(89, 93, 105) solid;
 }
 
-.asis{
-    background-color: #888;
+canvas{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+     object-fit: contain;
 }
 
-.pant{
-    height: 50px;
-    width:325px;
-    text-align: right;
+.none{
+    display: none;
 }
+
+#fondo{
+    width: 452px;
+}
+
+#menuFiltros{
+    button{
+        width: 100%;
+        color: white;
+        &:hover{
+            background-color: rgba(73, 73, 73, 0.849);
+        }
+    }
+}
+
+#filtresDiv{
+    button{
+        width: 100%;
+        color: white;
+        background-color: rgb(33, 37, 41);
+        border: none;
+        &:hover{
+            background-color: rgba(73, 73, 73, 0.849);
+        }
+    }
+}
+ #herramientasDiv{
+    background-color: rgb(21, 22, 26);
+    border-right: 1px rgb(89, 93, 105) solid;
+ }
+ footer{
+    background-color: rgb(21, 22, 26);
+    border-top: 1px rgb(89, 93, 105) solid;
+ }
+
+ @media (max-width: 460px) {
+    #canvasContainer{
+        height: 650px;
+        #fondo{
+            margin: 0em auto;
+        }
+    
+        #canvita{
+            margin: 0em auto;
+            overflow: hidden;
+            width: 50%;
+            height: 600px;
+        }
+    
+    }
+  }
+
+  @media (min-width: 460px) and (max-width: 778px) {
+    #canvasContainer{
+        height: 630px;
+        #fondo{
+            margin: 0em auto;
+        }
+    
+        #canvita{
+            margin: 0em auto;
+            overflow: hidden;
+            width: 50%;
+            height: 600px;
+        }
+    
+    }
+  }
+  #wdiv{
+    button{
+        width: 100%;
+        border-radius: 25px;
+    }
+  }
+  @media (max-width: 768px) {
+    #wdiv {
+      overflow-y: visible;
+      overflow-x: auto;
+    }
+    
+  }
+  
+  
