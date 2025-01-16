@@ -24,7 +24,7 @@ canvas{
     max-width: 100%;
     max-height: 100%;
     display: block;
-     object-fit: contain;
+    object-fit: contain;
 }
 
 .none{
@@ -67,7 +67,7 @@ canvas{
 
  @media (max-width: 460px) {
     #canvasContainer{
-        height: 650px;
+        height: 600px;
         #fondo{
             margin: 0em auto;
         }
@@ -76,7 +76,7 @@ canvas{
             margin: 0em auto;
             overflow: hidden;
             width: 50%;
-            height: 600px;
+            height: 400px;
         }
     
     }
@@ -84,7 +84,7 @@ canvas{
 
   @media (min-width: 460px) and (max-width: 778px) {
     #canvasContainer{
-        height: 630px;
+        height: 570px;
         #fondo{
             margin: 0em auto;
         }
@@ -93,7 +93,7 @@ canvas{
             margin: 0em auto;
             overflow: hidden;
             width: 50%;
-            height: 600px;
+            height: 400px;
         }
     
     }

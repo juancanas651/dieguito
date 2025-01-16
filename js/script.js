@@ -55,14 +55,21 @@ fileInput.addEventListener('change',(event)=>{
 
 //elegir el filtro a utilizar y cambiar el input de tipo rango
 menuFiltros.addEventListener('click', (event) => {
+    diosSanto(event.target.id);
+});
+menuFiltros.addEventListener('touchstart', (event) => {
+    diosSanto(event.target.id);
+});
+
+function diosSanto(event){
     let filtroSeleccionado = null;
     /**verifica a cual boton dio click para determinar el filtro  que corresponde aplicar */
-    (event.target.id === 'dropBrillo') ? (filtroSeleccionado = 0 , labelFiltro.innerHTML= 'Brillo'): false ;
-    (event.target.id === 'dropContraste') ? (filtroSeleccionado = 1 , labelFiltro.innerHTML= 'Contraste'): false ;
-    (event.target.id === 'dropGrises') ? (filtroSeleccionado = 2 , labelFiltro.innerHTML= 'Escala de Grises'): false ;
-    (event.target.id === 'dropInvertirTono') ? (filtroSeleccionado = 3 , labelFiltro.innerHTML= 'Invertir Tono'): false ;
-    (event.target.id === 'dropInvertir') ? (filtroSeleccionado = 4 , labelFiltro.innerHTML= 'Invertir'): false ;
-    (event.target.id === 'dropSaturacion') ? (filtroSeleccionado = 5 , labelFiltro.innerHTML= 'Saturacion'): false ;
+    (event === 'dropBrillo') ? (filtroSeleccionado = 0 , labelFiltro.innerHTML= 'Brillo'): false ;
+    (event === 'dropContraste') ? (filtroSeleccionado = 1 , labelFiltro.innerHTML= 'Contraste'): false ;
+    (event === 'dropGrises') ? (filtroSeleccionado = 2 , labelFiltro.innerHTML= 'Escala de Grises'): false ;
+    (event === 'dropInvertirTono') ? (filtroSeleccionado = 3 , labelFiltro.innerHTML= 'Invertir Tono'): false ;
+    (event === 'dropInvertir') ? (filtroSeleccionado = 4 , labelFiltro.innerHTML= 'Invertir'): false ;
+    (event === 'dropSaturacion') ? (filtroSeleccionado = 5 , labelFiltro.innerHTML= 'Saturacion'): false ;
 
     if (filtroSeleccionado !== null) {
         inputRange.value = parseInt(filtros[filtroSeleccionado]);
@@ -78,8 +85,7 @@ menuFiltros.addEventListener('click', (event) => {
         //removemos la clase none para que se muestre en pantalla
         hpta.classList.remove('none');
     };
-});
-
+}
 //verificamos si tiene la clase none , si no la tiene se la agregamos para que este oculto
 //mientras no le de a akgun filtro
 buttonFiltros.addEventListener('click',()=>{
@@ -100,6 +106,7 @@ function apply(){
                 hue-rotate(${filtros[3]}deg)
                 invert(${filtros[4]}%)
                 saturate(${filtros[5]}%)` ;
+                dibujarGrados()
     ctx.drawImage(imagen,0,0);
 }
 
