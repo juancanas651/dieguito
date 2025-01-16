@@ -62,6 +62,7 @@ menuFiltros.addEventListener('touchstart', (event) => {
 });
 
 function diosSanto(event){
+    
     let filtroSeleccionado = null;
     /**verifica a cual boton dio click para determinar el filtro  que corresponde aplicar */
     (event === 'dropBrillo') ? (filtroSeleccionado = 0 , labelFiltro.innerHTML= 'Brillo'): false ;
@@ -100,6 +101,9 @@ function oclt(){
 let filtros = [100,100,0,0,0,100];
 
 function apply(){
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     ctx.filter = `brightness(${filtros[0]}%)
                 contrast(${filtros[1]}%)
                 grayscale(${filtros[2]}%)
