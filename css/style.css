@@ -1,115 +1,189 @@
-#canvasContainer{
-    height: 750px;
-    #fondo{
-        margin: 0em auto;
+/* Variables globales */
+:root {
+    --editor-height-desktop: 750px;
+    --editor-height-tablet: 570px;
+    --editor-height-mobile: 600px;
+    --canvas-height-desktop: 600px;
+    --canvas-height-mobile: 400px;
+    --border-color: rgb(89, 93, 105);
+    --bg-color: rgb(21, 22, 26);
+  }
+  
+  /* Estilos base */
+  body {
+    background-color: var(--bg-color);
+    min-height: 100vh;
+  }
+  
+  /* Container principal */
+  #canvasContainer {
+    height: var(--editor-height-desktop);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  #canvita {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 90%;
+    max-width: 800px;
+    height: var(--canvas-height-desktop);
+    transition: all 0.3s ease;
+  }
+  
+  /* Barra de herramientas */
+  #herramientasDiv {
+    background-color: var(--bg-color);
+    border-right: 1px var(--border-color) solid;
+    height: 100%;
+  }
+  
+  /* Contenedor de botones de herramientas */
+  #wdiv {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  #wdiv button {
+    width: 100%;
+    border-radius: 25px;
+    white-space: nowrap;
+  }
+  
+  /* Panel de ajustes */
+  #hpta {
+    padding: 1rem;
+  }
+  
+  /* Navegación */
+  nav {
+    border-bottom: 1px var(--border-color) solid;
+    padding: 1rem;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: var(--bg-color);
+    border-top: 1px var(--border-color) solid;
+  }
+  
+  /* Responsive: Móvil pequeño */
+  @media (max-width: 460px) {
+    #canvasContainer {
+      height: var(--editor-height-mobile);
+      padding: 0.5rem;
     }
-
-    #canvita{
-        margin: 0em auto;
-        overflow: hidden;
-        width: 50%;
-        height: 600px;
+  
+    #canvita {
+      width: 100%;
+      height: var(--canvas-height-mobile);
     }
-
-}
-body{
-    background-color: rgb(21, 22, 26);
-}
-nav{
-
-    border-bottom: 1px rgb(89, 93, 105) solid;
-}
-
-canvas{
+  
+    #wdiv {
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      padding: 0.5rem;
+      gap: 0.25rem;
+    }
+  
+    #wdiv button {
+      min-width: 40px;
+      padding: 0.5rem;
+    }
+  
+    #herramientasDiv {
+      border-right: none;
+      border-bottom: 1px var(--border-color) solid;
+    }
+  
+    .navbar-brand {
+      font-size: 1.2rem !important;
+    }
+  }
+  
+  /* Responsive: Tablet */
+  @media (min-width: 461px) and (max-width: 768px) {
+    #canvasContainer {
+      height: var(--editor-height-tablet);
+    }
+  
+    #canvita {
+      width: 80%;
+      height: var(--canvas-height-mobile);
+    }
+  
+    #wdiv {
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      padding: 0.75rem;
+    }
+  }
+  
+  /* Responsive: Desktop pequeño */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    #canvita {
+      width: 70%;
+    }
+  
+    #wdiv {
+      flex-wrap: wrap;
+    }
+  
+    #wdiv button {
+      width: calc(50% - 0.25rem);
+    }
+  }
+  
+  /* Ajustes específicos para la barra de herramientas */
+  @media (max-width: 768px) {
+    #herramientasDiv .d-md-none {
+      display: inline-block !important;
+    }
+  
+    #herramientasDiv .d-none.d-md-block {
+      display: none !important;
+    }
+  
+    #hpta {
+      padding: 0.5rem;
+    }
+  }
+  
+  /* Utilidades */
+  .none {
+    display: none !important;
+  }
+  
+  /* Ajustes para el canvas */
+  canvas {
     max-width: 100%;
     max-height: 100%;
     display: block;
     object-fit: contain;
-}
-
-.none{
-    display: none;
-}
-
-#fondo{
-    width: 452px;
-}
-
-#menuFiltros{
-    button{
-        width: 100%;
-        color: white;
-        &:hover{
-            background-color: rgba(73, 73, 73, 0.849);
-        }
-    }
-}
-
-#filtresDiv{
-    button{
-        width: 100%;
-        color: white;
-        background-color: rgb(33, 37, 41);
-        border: none;
-        &:hover{
-            background-color: rgba(73, 73, 73, 0.849);
-        }
-    }
-}
- #herramientasDiv{
-    background-color: rgb(21, 22, 26);
-    border-right: 1px rgb(89, 93, 105) solid;
- }
- footer{
-    background-color: rgb(21, 22, 26);
-    border-top: 1px rgb(89, 93, 105) solid;
- }
-
- @media (max-width: 460px) {
-    #canvasContainer{
-        height: 600px;
-        #fondo{
-            margin: 0em auto;
-        }
-    
-        #canvita{
-            margin: 0em auto;
-            overflow: hidden;
-            width: 50%;
-            height: 400px;
-        }
-    
-    }
-  }
-
-  @media (min-width: 460px) and (max-width: 778px) {
-    #canvasContainer{
-        height: 570px;
-        #fondo{
-            margin: 0em auto;
-        }
-    
-        #canvita{
-            margin: 0em auto;
-            overflow: hidden;
-            width: 50%;
-            height: 400px;
-        }
-    
-    }
-  }
-  #wdiv{
-    button{
-        width: 100%;
-        border-radius: 25px;
-    }
-  }
-  @media (max-width: 768px) {
-    #wdiv {
-      overflow-y: visible;
-      overflow-x: auto;
-    }
-    
   }
   
+  /* Ajustes para los menús desplegables */
+  .dropdown-menu {
+    min-width: 120px;
+  }
   
+  /* Mejoras de accesibilidad */
+  @media (hover: hover) {
+    #wdiv button:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+  }
+  
+  /* Soporte para modo oscuro del sistema */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-color: rgb(18, 18, 20);
+      --border-color: rgb(45, 45, 50);
+    }
+  }
