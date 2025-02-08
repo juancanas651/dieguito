@@ -23,24 +23,29 @@ botonCargar[1].addEventListener('click',function(){
     fileInput.click();
 });
 
-const leer = new FileReader();
-const imagen = new Image ();
-
+const leer = new FileReader();//usamos la api de file reader para leer documentos
+const imagen = new Image ();// usamos esta cosa para crear una img , seria como usar el create element
+// const imagen = document.createElement('img'); tambien sirve 
 
 fileInput.addEventListener('change',(event)=>{
+    //event es pues el elemeto que disparo el evento osea file input 
+    //files es una lista de archivos de este input y [0] para que recupere el primero
     const archivo = event.target.files[0];
-    if(archivo){
-        leer.onload = (e) => {
-            imagen.onload = ()=>{
-                canvas.width = imagen.width;
+
+    if(archivo){//esto verifica que el archivo exista para evitar errores como por ejemplo que cancele la seleccion
+        leer.onload = (e) => {//leer es pues el objeto filereader , y onload es un evento que se dispara cuando la lectura del archivo termino
+
+            imagen.onload = ()=>{//imagen es pues la imagen , onload espera a que la imagen se cargue
+
+                canvas.width = imagen.width;//ajusta los tamaños del canvas con respecto a la imagen
                 canvas.height = imagen.height;
-                ctx.drawImage(imagen,0,0);
+                ctx.drawImage(imagen,0,0);//finalmente dibuja la imagen en el canvas  
             };
-            imagen.src = e.target.result;
+            imagen.src = e.target.result;//esto verifica que el archivo sea correcto y lo carga en la imagen , si no pues no
         };
-        leer.readAsDataURL(archivo);
-        fondo.classList.add('none');
-        canvita.classList.remove('none');
+        leer.readAsDataURL(archivo);//esto convierte el archivo que viene como url en uno como base 64 que no me acuerdo que es , pero luego de verificar ejecuta el onload
+        fondo.classList.add('none');//esconde la foto que aparece por defecto
+        canvita.classList.remove('none');//muestra el canvas que estaba previamente oculto 
     };
 });
 
@@ -51,53 +56,66 @@ menuFiltros.addEventListener('click', (event) => {
 menuFiltros.addEventListener('touchstart', (event) => {
     filtroSeleccionado(event.target.id);
 });
+const filtroMap = {//creamos un objeto que mapea los filtros que pueden ser seleccionados 
+    dropBrillo: "brillo",
+    dropContraste: "contraste",
+    dropGrises: "grises",
+    dropInvertirTono: "invertirTono",
+    dropInvertir: "invertir",
+    dropSaturacion: "saturacion"
+};
 
-function filtroSeleccionado(event){
-    let filtroSeleccionado = null;
-    /**verifica a cual boton dio click para determinar el filtro  que corresponde aplicar */
-    (event === 'dropBrillo') ? (filtroSeleccionado = 0 , labelFiltro.innerHTML= 'Brillo'): false ;
-    (event === 'dropContraste') ? (filtroSeleccionado = 1 , labelFiltro.innerHTML= 'Contraste'): false ;
-    (event === 'dropGrises') ? (filtroSeleccionado = 2 , labelFiltro.innerHTML= 'Escala de Grises'): false ;
-    (event === 'dropInvertirTono') ? (filtroSeleccionado = 3 , labelFiltro.innerHTML= 'Invertir Tono'): false ;
-    (event === 'dropInvertir') ? (filtroSeleccionado = 4 , labelFiltro.innerHTML= 'Invertir'): false ;
-    (event === 'dropSaturacion') ? (filtroSeleccionado = 5 , labelFiltro.innerHTML= 'Saturacion'): false ;
-    if (filtroSeleccionado !== null) {
-        inputRange.value = parseInt(filtros[filtroSeleccionado]);
-        numerito.innerHTML = inputRange.value;
-        //esta vuelta cambia el valor del filtro en tiempo real 
-        inputRange.oninput = () => {
-            filtros[filtroSeleccionado] = parseInt(inputRange.value);
-            numerito.innerHTML = inputRange.value;
-            apply();
-        };
-        inputRange.addEventListener('change',almacenarEstado);
-        //removemos la clase none para que se muestre en pantalla
-        containerRange.classList.remove('none');
+function filtroSeleccionado(event) {
+    const claveFiltro = filtroMap[event];//busca en el objeto el id seleccionado 
+
+    if (!claveFiltro) return; // esto es para que se salga si el filtro no
+
+    labelFiltro.innerHTML = claveFiltro;//escribimos cual fue el filtro seleccionado 
+
+    //le damos los valores correspondientes a cada elemento del DOM
+    inputRange.value =  filtros[claveFiltro];
+    numerito.innerHTML =  filtros[claveFiltro];
+    
+    //ejecutamos on input para ejevutar una accion cada ves que se usa el input
+    inputRange.oninput = () => {
+        filtros[claveFiltro] = +inputRange.value;
+        numerito.innerHTML = filtros[claveFiltro];
+        apply();
     };
+
+    inputRange.addEventListener('change', almacenarEstado);    //escuchamos el evento change , para almacenar el estado cada vez que el inputrange cambia 
+    containerRange.classList.remove('none');//mostramos el input el nombre etc 
 }
-//verificamos si tiene la clase none , si no la tiene se la agregamos para que este oculto
 //mientras no le de a akgun filtro
 buttonFiltros.addEventListener('click',()=>{
     oclt()
 });
 
 function oclt(){
-    (containerRange.classList.contains('none')) ? true: containerRange.classList.add('none');
+    (containerRange.classList.contains('none')) ? true: containerRange.classList.add('none');//verificamos si tiene la clase none , si no la tiene se la agregamos para que este oculto
 }
 
 //aplicar filtros al canvas con la imagen
-let filtros = [100,100,0,0,0,100];
 
-let grados = 0;
+let filtros = {//creamos un objeto  con los valores que le vamos a aplicar al canvas
+    brillo:      100,
+    contraste:   100,
+    grises:       0 ,
+    invertirTono: 0 ,
+    invertir:     0 ,
+    saturacion:  100 ,
+    grados:       0 ,
+};
 
-btnIzquierda.addEventListener('click',()=>{
-    grados -= 90;
+
+btnIzquierda.addEventListener('click',()=>{//estos botones son los que manejan los grados
+    filtros.grados -= 90;
     almacenarEstado()
     apply()
 });
 
 btnDerecha.addEventListener('click',()=>{
-    grados += 90;
+    filtros.grados += 90;
     almacenarEstado()
     apply()
 });
@@ -106,16 +124,16 @@ btnDerecha.addEventListener('click',()=>{
 function apply() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // Aplicamos los filtros (brillo, contraste, etc.)
-    ctx.filter = `brightness(${filtros[0]}%)
-                  contrast(${filtros[1]}%)
-                  grayscale(${filtros[2]}%)
-                  hue-rotate(${filtros[3]}deg)
-                  invert(${filtros[4]}%)
-                  saturate(${filtros[5]}%)`;
+    ctx.filter = `brightness(${filtros.brillo}%)
+                  contrast(${filtros.contraste}%)
+                  grayscale(${filtros.grises}%)
+                  hue-rotate(${filtros.invertirTono}deg)
+                  invert(${filtros.invertir}%)
+                  saturate(${filtros.saturacion}%)`;
     // Guardamos el contexto para aplicar la rotación
     ctx.save();
     ctx.translate(canvas.width / 2, canvas.height / 2); // Mover al centro
-    ctx.rotate(grados * Math.PI / 180); // Rotación en grados
+    ctx.rotate(filtros.grados * Math.PI / 180); // Rotación en grados
     ctx.drawImage(imagen, -imagen.width / 2, -imagen.height / 2); // Dibuja la imagen rotada
     ctx.restore(); // Restauramos el contexto para no afectar futuras operaciones
 }
@@ -186,7 +204,7 @@ function verFav() {
         if (!item) continue; // Evita errores si la clave no existe en localStorage
 
         let filtrosRecuperados = JSON.parse(item);
-        if (!filtrosRecuperados || !filtrosRecuperados.nombre) continue; // Verifica que el objeto es válido
+        if (!filtrosRecuperados || !filtrosRecuperados.nombre) continue; // Verifica que el objeto es válido si no se salta el ciclo
 
         const li = document.createElement('li');
         const btn = document.createElement('button');
@@ -216,10 +234,10 @@ function verFav() {
 }
 function descargarImagen() {
     const imagenD = canvas.toDataURL("image/png"); // Convertir canvas a imagen
-    const enlace = document.createElement("a");
-    enlace.href = imagenD;
+    const enlace = document.createElement("a");//creamos un elemeto a o link en el DOM
+    enlace.href = imagenD;//el elemento enlace tiene como href la imagen creada con el canvas
     enlace.download = "imagen_editada.png"; // Nombre del archivo de salida
-    enlace.click(); // Simula un clic para descargar
+    enlace.click(); // Simula un clic para descargar el archivo
 };
 document.getElementById('btnGuardar').addEventListener('click',()=>{
     descargarImagen();
@@ -228,66 +246,41 @@ document.getElementById('btnGuardar').addEventListener('click',()=>{
 const btnaAtras = document.querySelectorAll('#btnAtras');
 const btnaAdelante = document.querySelectorAll('#btnAdelante');
 
-let filtrosA ={
-    f1: 100 ,
-    f2: 100 ,
-    f3: 0 ,
-    f4: 0 ,
-    f5: 0 ,
-    f6: 100 ,
-    g: 0 ,
-};
-let estados = [];
-estados.push({...filtrosA});
-let cuen = 0 ;
+let estados = [];//creamos el arreglo que va a almacenar los estados por los que ha pasado el canvas
+
+estados.push({...filtros});//hacemos un push para guardar como es el estado 0 del canvas
+
+let cuen = 0 ;//creamos un contador para saber en que posicion del estado estamos 
+
 function almacenarEstado (){
-    filtrosA.f1 = filtros[0];
-    filtrosA.f2 = filtros[1];
-    filtrosA.f3 = filtros[2];
-    filtrosA.f4 = filtros[3];
-    filtrosA.f5 = filtros[4];
-    filtrosA.f6 = filtros[5];
-    filtrosA.g = grados
+    estados.push({...filtros});//cada vez que se ejecuta la funcion almacena un estado del canvas 
+    //los tres puntos es para que no cambien los demas objetos del arreglo con el mismo nombre
 
-    estados.push({...filtrosA});
 
-    if(estados.length > 10){
+    if(estados.length > 10){//cuando el arreglo tiene mas de 10 cosas adentro , elimina la primera para tener un limite de guardado
         estados.shift();
     };
-    cuen = estados.length-1;
+    cuen = estados.length-1;//sincronizamos el contador con el numero de estados guardados en el arreglo
 };
 
 function retroceder (){
-    if(cuen > 0){
-        cuen-= 1;
-        let stray = estados[cuen];
-        filtros[0] = stray.f1;
-        filtros[1] = stray.f2;
-        filtros[2] = stray.f3;
-        filtros[3] = stray.f4;
-        filtros[4] = stray.f5;
-        filtros[5] = stray.f6;
-        grados = stray.g;
-        apply()
+    if(cuen > 0){ //verifica que el contador sea mayor a 0 para evitar errores con numeros negativos
+        cuen-= 1;//como estamos retrocediendo le resta 1 al contador 
+        filtros = estados[cuen];//cambia el arreglo filtros al que esta guardado en la posicion con base al contador 
+        apply()//aplicamos cambips
     }
 };
 function avanzar (){
-    if(cuen < estados.length-1){
-        cuen+= 1;
-        let stray = estados[cuen];
-        filtros[0] = stray.f1;
-        filtros[1] = stray.f2;
-        filtros[2] = stray.f3;
-        filtros[3] = stray.f4;
-        filtros[4] = stray.f5;
-        filtros[5] = stray.f6;
-        grados = stray.g;
+    if(cuen < estados.length-1){//verifica que el contador sea menos al numero de objetos en el arreglo para evitar errores 
+        cuen+= 1;//lo mismo de arriba pero al reves
+         filtros = estados[cuen];
         apply()
     }
 };
+//estas fuunciones se ejecutan con el onclick directamente en la etica de button en el html
 
-document.addEventListener("keydown", (event) => {
-    if (event.ctrlKey && event.key === "z") {
+document.addEventListener("keydown", (event) => {//escucha el documento para saber que teclas son precionadas
+    if (event.ctrlKey && event.key === "z") {//si es ctrl z retorcede , si es control y avanza
         retroceder()
     }
     if (event.ctrlKey && event.key === "y") {
