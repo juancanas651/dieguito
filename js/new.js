@@ -22,6 +22,9 @@ botonCargar[0].addEventListener('click',function(){
 botonCargar[1].addEventListener('click',function(){
     fileInput.click();
 });
+botonCargar[2].addEventListener('click',function(){
+    fileInput.click();
+});
 
 const leer = new FileReader();//usamos la api de file reader para leer documentos
 const imagen = new Image ();// usamos esta cosa para crear una img , seria como usar el create element
@@ -97,7 +100,7 @@ function oclt(){
 
 //aplicar filtros al canvas con la imagen
 
-let filtros = {//creamos un objeto  con los valores que le vamos a aplicar al canvas
+let filtros = {//creamos un objeto  con los valores que le vamos a aplicar al canvas , con let para que pueda cambiar
     brillo:      100,
     contraste:   100,
     grises:       0 ,
@@ -119,9 +122,17 @@ btnDerecha.addEventListener('click',()=>{
     almacenarEstado()
     apply()
 });
-
 // Actualizamos la función apply para que los filtros y la rotación se apliquen juntos
 function apply() {
+    //calculamos el widt y el height para que se adapte a la rotacion de la foto
+    if (filtros.grados % 180 !== 0) {//verifica si la rotacion es de 90  o 270 grados  , si si invierte los valores
+        canvas.width = imagen.height;
+        canvas.height = imagen.width;
+    } else {// pues si no los valores son normales 
+        canvas.width = imagen.width;
+        canvas.height = imagen.height;
+    }
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // Aplicamos los filtros (brillo, contraste, etc.)
     ctx.filter = `brightness(${filtros.brillo}%)
@@ -145,10 +156,6 @@ function apply() {
 let keys = [];
 let cont = 0;
 
-let use ={
-    k:'',
-    a:[]
-}
 // recuperamos del localstorage los valores del array y  el cont para tener actualizadas
 //las variables con respecto al disposittivo
 const savedData = JSON.parse(localStorage.getItem('tuki'));
@@ -162,7 +169,7 @@ if (savedData) {
  */
 buttonAnadirFavoritos.addEventListener('click',()=>{
     cont = keys.length;
-    //sumamos aal arreglo el contador
+    //sumamos al arreglo el contador
     keys.push(cont+1);
     //lo mismo pero en el objeto
     let object ={
@@ -177,7 +184,6 @@ buttonAnadirFavoritos.addEventListener('click',()=>{
     /**recuperamos el objeto del local storage y lo volvemos denuevo un objeto
      * parseandolo , y lo almacenamos en use
      */
-    use = JSON.parse(localStorage.getItem('tuki'));
     /**almacenamos en un objeto nuevo , el nombre con que va a guardar y los valores de los filtros*/
     let nom = prompt('nombre de favorito');
     let fav ={
@@ -198,7 +204,6 @@ buttonGuardados.addEventListener('click',()=>{
 //muestra los filtros que han sido guardados en el local storage del dispositivo
 function verFav() {
     filtresDiv.innerHTML = '';
-
     for (let i = 0 ; i < cont; i++) {
         let item = localStorage.getItem(`${i}`);
         if (!item) continue; // Evita errores si la clave no existe en localStorage
@@ -209,7 +214,8 @@ function verFav() {
         const li = document.createElement('li');
         const btn = document.createElement('button');
         btn.textContent = filtrosRecuperados.nombre;
-        console.log(filtrosRecuperados)
+        btn.classList.add('btn');
+        console.log(btn)
         li.appendChild(btn);
         filtresDiv.appendChild(li);
 
@@ -224,7 +230,8 @@ function verFav() {
     }
         // Botón para limpiar filtros
     const btnLimpiar = document.createElement('button');
-    btnLimpiar.textContent = 'Limpiar Filtros';
+    btnLimpiar.textContent = 'Limpiar Favoritos';
+    btnLimpiar.classList.add('btn');
     btnLimpiar.addEventListener('click', () => {
         localStorage.clear(); // Borra todos los filtros guardados
         verFav(); // Vuelve a renderizar la lista (quedará vacía)
@@ -233,15 +240,21 @@ function verFav() {
     filtresDiv.appendChild(btnLimpiar);
 }
 function descargarImagen() {
-    const imagenD = canvas.toDataURL("image/png"); // Convertir canvas a imagen
-    const enlace = document.createElement("a");//creamos un elemeto a o link en el DOM
-    enlace.href = imagenD;//el elemento enlace tiene como href la imagen creada con el canvas
-    enlace.download = "imagen_editada.png"; // Nombre del archivo de salida
-    enlace.click(); // Simula un clic para descargar el archivo
+    if(fondo.classList.contains('none')){
+        const imagenD = canvas.toDataURL("image/png"); // Convertir canvas a imagen
+        const enlace = document.createElement("a");//creamos un elemeto a o link en el DOM
+        enlace.href = imagenD;//el elemento enlace tiene como href la imagen creada con el canvas
+        enlace.download = "imagen_editada.png"; // Nombre del archivo de salida
+        enlace.click(); // Simula un clic para descargar el archivo
+    }
 };
-document.getElementById('btnGuardar').addEventListener('click',()=>{
-    descargarImagen();
-});
+
+const btnGuardar = document.querySelectorAll('#btnGuardar');
+
+btnGuardar[0].addEventListener('click',descargarImagen);
+btnGuardar[1].addEventListener('click',descargarImagen);
+
+
 //almacenar estados
 const btnaAtras = document.querySelectorAll('#btnAtras');
 const btnaAdelante = document.querySelectorAll('#btnAdelante');
@@ -287,3 +300,15 @@ document.addEventListener("keydown", (event) => {//escucha el documento para sab
         avanzar()
     }
 });
+
+function toggleSidebar() {
+    let sidebar = document.getElementById("sidebar");
+    sidebar.style.left = "0";
+    document.addEventListener('click',miEvento)
+}
+function miEvento (x){
+    if(x.target.id !== 'boton'){
+        sidebar.style.left = "-250";
+
+    }
+}

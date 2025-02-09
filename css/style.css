@@ -1,5 +1,5 @@
 #canvasContainer{
-    height: 750px;
+    height: 700px;
     #fondo{
         margin: 0em auto;
     }
@@ -35,34 +35,37 @@ canvas{
     width: 452px;
 }
 
-#menuFiltros{
+
+ #herramientasDiv{
+    background-color: rgb(35, 37, 48);
+    border-right: 1px rgba(110, 114, 126, 0.815) solid;
+ }
+ #wdiv{
     button{
         width: 100%;
-        color: white;
+        background-color: rgb(70, 71, 80);
         &:hover{
-            background-color: rgba(73, 73, 73, 0.849);
+            background-color: rgb(112, 114, 126);
         }
     }
-}
-
-#filtresDiv{
+  }
+  #menuRotate,#filtresDIv,#menuFiltros{
+    background-color: rgb(23, 27, 44);
     button{
         width: 100%;
         color: white;
-        background-color: rgb(33, 37, 41);
+        background-color: rgb(23, 27, 44);
         border: none;
         &:hover{
             background-color: rgba(73, 73, 73, 0.849);
         }
     }
-}
- #herramientasDiv{
-    background-color: rgb(21, 22, 26);
-    border-right: 1px rgb(89, 93, 105) solid;
- }
+  }
+  #tiko{
+    border-bottom: 1px rgba(110, 114, 126, 0.815) solid;
+  }
  footer{
     background-color: rgb(21, 22, 26);
-    border-top: 1px rgb(89, 93, 105) solid;
  }
 
  @media (max-width: 460px) {
@@ -98,12 +101,7 @@ canvas{
     
     }
   }
-  #wdiv{
-    button{
-        width: 100%;
-        border-radius: 25px;
-    }
-  }
+
   @media (max-width: 768px) {
     #wdiv {
       overflow-y: visible;
@@ -126,4 +124,52 @@ canvas{
     background-color: rgba(0, 0, 0, 0.2);
     position: absolute;
     cursor: crosshair;
+}
+
+.dropdown-toggle::after {
+    display: none !important;
+  }
+
+
+         /* Contenedor de la barra lateral */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #333;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Oculta la barra */
+    transition: left 0.3s ease;
+    padding-top: 20px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background: #555;
+}
+
+        /* Botón para abrir/cerrar la barra */
+.toggle-btn {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 20px;
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.toggle-btn:hover {
+    background: #555;
 }
