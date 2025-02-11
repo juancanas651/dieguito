@@ -17,13 +17,49 @@ const containerRange = document.getElementById('containerRange');
 
 /**cargar  la imagen al canvas*/
 botonCargar[0].addEventListener('click',function(){
-    fileInput.click();
+    if(fondo.classList.contains('none')){ //verififcamos si hay una imagen ya cargada en el canvas
+        Swal.fire({//usamos una libreria llamada sweetalert2 para que los alert se vean bonitos 
+            title: "¿Estás seguro?",
+            text: "Deseas descarga tu edicion previa",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Sí, Descargar",
+            cancelButtonText: "Cancelar"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                descargarImagen();
+                fileInput.click();
+            } else {
+              fileInput.click();
+            }
+          });
+    }else{
+        fileInput.click();
+    };
 });
 botonCargar[1].addEventListener('click',function(){
     fileInput.click();
 });
 botonCargar[2].addEventListener('click',function(){
-    fileInput.click();
+    if(fondo.classList.contains('none')){ //verififcamos si hay una imagen ya cargada en el canvas
+        Swal.fire({//usamos una libreria llamada sweetalert2 para que los alert se vean bonitos 
+            title: "¿Estás seguro?",
+            text: "Deseas descarga tu edicion previa",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Sí, Descargar",
+            cancelButtonText: "Cancelar"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                descargarImagen();
+                fileInput.click();
+            } else {
+              fileInput.click();
+            }
+          });
+    }else{
+        fileInput.click();
+    };
 });
 
 const leer = new FileReader();//usamos la api de file reader para leer documentos
@@ -48,7 +84,8 @@ fileInput.addEventListener('change',(event)=>{
         };
         leer.readAsDataURL(archivo);//esto convierte el archivo que viene como url en uno como base 64 que no me acuerdo que es , pero luego de verificar ejecuta el onload
         fondo.classList.add('none');//esconde la foto que aparece por defecto
-        canvita.classList.remove('none');//muestra el canvas que estaba previamente oculto 
+        canvita.classList.remove('none');
+        canvita.classList.add('d-flex');//muestra el canvas que estaba previamente oculto 
     };
 });
 
@@ -158,40 +195,58 @@ let cont = 0;
 
 // recuperamos del localstorage los valores del array y  el cont para tener actualizadas
 //las variables con respecto al disposittivo
-const savedData = JSON.parse(localStorage.getItem('tuki'));
+function guardadito (){
+    const savedData = JSON.parse(localStorage.getItem('tuki'));
 
-if (savedData) {
-    keys = savedData.a; // Recuperar el array guardado
-    cont = savedData.k; // Recuperar el último valor de cont
-}
+    if (savedData) {
+        keys = savedData.a; // Recuperar el array guardado
+        cont = savedData.k; // Recuperar el último valor de cont
+    };
+};
+guardadito();
 /**escuchamos el boton , en especifico el click para posteriormente
  * guardar en el local storage los items
  */
 buttonAnadirFavoritos.addEventListener('click',()=>{
-    cont = keys.length;
-    //sumamos al arreglo el contador
-    keys.push(cont+1);
-    //lo mismo pero en el objeto
-    let object ={
-        k:cont+1,
-        a:keys
-    }
-    /**en esta vuelta se manda un item al local storage 
-     * con la key 'tuki' y el objeto convertido a string
-     */
-    localStorage.setItem(`tuki`,JSON.stringify(object));
+    Swal.fire({
+        title: "Ingresa el nombre",
+        input: "text",
+        inputPlaceholder: "esca.....",
+        showCancelButton: true,
+        confirmButtonText: "Aceptar",
+        cancelButtonText: "Cancelar",
+      }).then((result) => {
+        if (result.isConfirmed) {
+            cont = keys.length;
+            //sumamos al arreglo el contador
+            keys.push(cont+1);
+            //lo mismo pero en el objeto
+            let object ={
+                k:cont+1,
+                a:keys
+            }
+            /**en esta vuelta se manda un item al local storage 
+             * * con la key 'tuki' y el objeto convertido a string*/
 
-    /**recuperamos el objeto del local storage y lo volvemos denuevo un objeto
-     * parseandolo , y lo almacenamos en use
-     */
-    /**almacenamos en un objeto nuevo , el nombre con que va a guardar y los valores de los filtros*/
-    let nom = prompt('nombre de favorito');
-    let fav ={
-        nombre : `${nom}`,
-        valor : filtros
-    }
+            localStorage.setItem(`tuki`,JSON.stringify(object));
+            /**recuperamos el objeto del local storage y lo volvemos denuevo un objeto
+            * parseandolo , y lo almacenamos en use
+            */
+            /**almacenamos en un objeto nuevo , el nombre con que va a guardar y los valores de los filtros*/
+            let nom = result.value ;
+            let fav ={
+                nombre : `${nom}`,
+                valor : filtros
+            }
+        
+            localStorage.setItem(`${cont}`,JSON.stringify(fav));
 
-    localStorage.setItem(`${cont}`,JSON.stringify(fav));
+            guardadito();
+            
+        } else {
+            console.log('el usuario cancelo')
+        }
+      });
 });
 
 const filtresDiv = document.getElementById('filtresDiv');
@@ -215,7 +270,6 @@ function verFav() {
         const btn = document.createElement('button');
         btn.textContent = filtrosRecuperados.nombre;
         btn.classList.add('btn');
-        console.log(btn)
         li.appendChild(btn);
         filtresDiv.appendChild(li);
 
@@ -234,7 +288,7 @@ function verFav() {
     btnLimpiar.classList.add('btn');
     btnLimpiar.addEventListener('click', () => {
         localStorage.clear(); // Borra todos los filtros guardados
-        verFav(); // Vuelve a renderizar la lista (quedará vacía)
+        verFav(); // Vuelve a renderizar la lista vacia
     });
     
     filtresDiv.appendChild(btnLimpiar);
@@ -294,10 +348,10 @@ function avanzar (){
 
 document.addEventListener("keydown", (event) => {//escucha el documento para saber que teclas son precionadas
     if (event.ctrlKey && event.key === "z") {//si es ctrl z retorcede , si es control y avanza
-        retroceder()
+        retroceder();
     }
     if (event.ctrlKey && event.key === "y") {
-        avanzar()
+        avanzar();
     }
 });
 
@@ -305,10 +359,42 @@ function toggleSidebar() {
     let sidebar = document.getElementById("sidebar");
     sidebar.style.left = "0";
     document.addEventListener('click',miEvento)
-}
+};
 function miEvento (x){
     if(x.target.id !== 'boton'){
         sidebar.style.left = "-250";
 
     }
-}
+};
+
+
+const btnRever = document.querySelectorAll('#buttonRever');
+
+
+const original = {...filtros}
+
+let contad = 0
+function rever (){
+    let reciente = estados.length-1;
+    if(JSON.stringify(filtros) !== JSON.stringify(original)){//toca parserlo a string , porque javascript compara objetos por referencia y no por valor
+        filtros = {...original};
+    }else{
+        filtros = {...estados[reciente]}
+    }
+    apply()
+};
+
+
+btnRever[0].addEventListener('click',()=>{
+    if(fondo.classList.contains('none')){ //verififcamos si hay una imagen ya cargada en el canvas
+        rever()
+    }else{
+    };
+});
+
+btnRever[1].addEventListener('click',()=>{
+    if(fondo.classList.contains('none')){ //verififcamos si hay una imagen ya cargada en el canvas
+        rever()
+    }else{
+    };
+});

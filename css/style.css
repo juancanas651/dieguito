@@ -7,7 +7,9 @@
     #canvita{
         margin: 0em auto;
         overflow: hidden;
-        width: 50%;
+        width: 80%;
+        align-items: center; /* Centra verticalmente */
+        justify-content: center; /* Opcional: centra horizontalmente */
         height: 600px;
     }
     
@@ -25,6 +27,7 @@ canvas{
     max-height: 100%;
     display: block;
     object-fit: contain;
+    margin: 0em auto;
 }
 
 .none{
@@ -61,6 +64,12 @@ canvas{
         }
     }
   }
+  #buttonFiltros::after {
+    display: none !important;
+  }
+  #buttonGuardados::after {
+    display: none !important;
+  }
   #tiko{
     border-bottom: 1px rgba(110, 114, 126, 0.815) solid;
   }
@@ -78,7 +87,7 @@ canvas{
         #canvita{
             margin: 0em auto;
             overflow: hidden;
-            width: 50%;
+            width: 100%;
             height: 400px;
         }
     
@@ -93,9 +102,9 @@ canvas{
         }
     
         #canvita{
-            margin: 0em auto;
+            margin: 0px auto;
             overflow: hidden;
-            width: 50%;
+            width: 100%;
             height: 400px;
         }
     
@@ -110,25 +119,6 @@ canvas{
     
   }
   
-  #recorteHerramienta {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none; /* Asegura que el área de recorte no interfiera con el canvas */
-}
-
-#recorteArea {
-    border: 2px dashed #000;
-    background-color: rgba(0, 0, 0, 0.2);
-    position: absolute;
-    cursor: crosshair;
-}
-
-.dropdown-toggle::after {
-    display: none !important;
-  }
 
 
          /* Contenedor de la barra lateral */
